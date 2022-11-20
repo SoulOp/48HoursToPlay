@@ -6,6 +6,9 @@ public class player1 : MonoBehaviour
 {
     private Rigidbody2D Rigidbody2D;
     
+
+    public GameObject Bullet;
+
     //movement
     public float horizontal;
     public float vertical;
@@ -19,10 +22,13 @@ public class player1 : MonoBehaviour
     public float jumpCD;
     private float JumpTimeStart=0;
     
+    //animation
+    private Animator Animator;
     // Start is called before the first frame update
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();    
+        Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,14 +38,24 @@ public class player1 : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
         
+        //animation
+        Animator.SetInteger("direction",(int)vertical);
+
+        
         //jump
         if(Input.GetKeyDown("space") & cd_met(JumpTimeStart,jumpCD))
             {
               Jump();  
             }
 
+        if(Input.GetKeyDown(KeyCode.X)){
+            Shoot();
+        }
     }
     
+    private void Shoot(){
+        GameObject bullet = Instantiate(Bullet, transform.position,Quaternion.identity);
+    }
     private void FixedUpdate()
     {
         Rigidbody2D.velocity = new Vector2(horizontal*xVelocity,vertical*yVelocity);
