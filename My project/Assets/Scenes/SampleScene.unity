@@ -682,6 +682,7 @@ Transform:
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1145198790
 =======
 --- !u!1 &1374867058
@@ -803,6 +804,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of 5b4f7fd (Update)
 --- !u!1 &2027468957
 GameObject:
   m_ObjectHideFlags: 0
